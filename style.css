@@ -1,177 +1,197 @@
 
-/* CONFIGURAÇÕES GERAIS */
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #fff8e7;
-    margin: 0;
-    padding: 0;
-    color: #333;
+/* ALTERAÇÃO: variáveis de cores e fontes */
+:root {
+    --cor-principal: #e63946;
+    --cor-fundo: #fff8e7;
+    --cor-texto: #333;
+    --cor-destaque: #f1d6a5;
+    --cor-preco: #d97706;
+    --cor-branco: #fff;
+    --fonte-principal: 'Poppins', Arial, sans-serif;
 }
 
-/* CABEÇALHO */
+/* Configurações gerais */
+* {
+    box-sizing: border-box;
+}
 
+body {
+    background-color: var(--cor-fundo);
+    font-family: var(--fonte-principal);
+    margin: 0;
+    padding: 0;
+    color: var(--cor-texto);
+}
+
+/* Cabeçalho */
 header {
-    background-color: #e63946;
-    color: white;
+    background-color: var(--cor-principal);
+    color: var(--cor-branco);
     text-align: center;
-    padding: 25px;
+    padding: 1.5rem;
 }
 
 header h1 {
-    font-size: 35px;
-    margin-bottom: 5px;
+    font-size: 2rem;
+    margin: 0;
 }
 
+header p {
+    font-size: 1rem;
+}
+
+/* Menu de navegação */
 nav {
-    margin-top: 20px;
+    margin-top: 1rem;
 }
 
 nav a {
-    color: white;
+    color: var(--cor-branco);
     text-decoration: none;
-    margin: 12px;
-    font-weight: bold;
+    margin: 0 0.6rem;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 nav a:hover {
-    color: #ffd166;
+    color: #ffe066;
 }
 
-/* CONTEÚDO PRINCIPAL */
+/* ALTERAÇÃO: animação simples de entrada das seções */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
 
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Conteúdo principal */
 main {
-    width: 90%;
     max-width: 1100px;
+    width: 90%;
     margin: auto;
+    animation: aparecer 0.8s ease;
 }
 
-/* INÍCIO */
-
-.inicio {
-    background-color: white;
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 30px;
-    border: 2px solid #f1d6a5;
+/* Seções Início, Sobre e Contato */
+.inicio,
+.sobre,
+.contato {
+    background-color: var(--cor-branco);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border: 2px solid var(--cor-destaque);
     border-radius: 15px;
 }
 
-/* CARDÁPIO */
+/* ALTERAÇÃO: botão de ação */
+.botao {
+    display: inline-block;
+    background-color: var(--cor-principal);
+    color: var(--cor-branco);
+    text-decoration: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+}
 
+.botao:hover {
+    background-color: #c92f3b;
+    transform: scale(1.05);
+}
+
+/* Cardápio */
 .cardapio {
     text-align: center;
-    padding: 30px 0;
+    padding: 1rem 0;
 }
 
-.cardapio h2 {
-    color: #e63946;
-    font-size: 30px;
+.cardapio > h2 {
+    font-size: 1.8rem;
 }
 
-/* CATEGORIAS */
-
+/* Categorias */
 .categoria {
-    color: #e63946;
-    font-size: 25px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    text-align: center;
-    border-bottom: 2px solid #f1d6a5;
-    padding-bottom: 10px;
+    color: var(--cor-principal);
+    border-bottom: 2px solid var(--cor-destaque);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    font-size: 1.4rem;
 }
 
-/* ORGANIZAÇÃO DOS PRODUTOS */
-
+/* Organização dos cartões com Flexbox */
 .container-lanches {
     display: flex;
     justify-content: center;
     gap: 25px;
-    margin-top: 20px;
-    margin-bottom: 35px;
     flex-wrap: wrap;
 }
 
-/* CARDS DOS PRODUTOS */
-
+/* Cartões dos produtos */
 .lanche {
-    background-color: white;
+    background-color: var(--cor-branco);
     width: 280px;
-    border: 2px solid #f1d6a5;
+    border: 2px solid var(--cor-destaque);
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0px 4px 10px #00000020;
-    transition: 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-bottom: 1rem;
+
+    /* ALTERAÇÃO: transição suave para animação ao passar o mouse */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* ALTERAÇÃO: animação simples dos cartões */
 .lanche:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 15px #00000030;
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
 }
 
-/* IMAGENS */
-
+/* Imagens dos produtos */
 .lanche img {
     width: 100%;
     height: 190px;
     object-fit: cover;
-    border-bottom: 2px solid #f1d6a5;
+    border-bottom: 2px solid var(--cor-destaque);
 }
 
-/* TEXTOS DOS PRODUTOS */
-
 .lanche h3 {
-    color: #e63946;
-    font-size: 22px;
+    font-size: 1.2rem;
 }
 
 .lanche p {
-    padding: 0 15px;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
 }
 
 .lanche span {
-    display: block;
-    color: #d97706;
-    font-size: 21px;
+    color: var(--cor-preco);
+    font-size: 1.1rem;
     font-weight: bold;
-    margin: 20px;
 }
 
-/* SOBRE NÓS E CONTATO */
-
-.sobre,
-.contato {
-    background-color: white;
-    padding: 25px;
-    margin-bottom: 25px;
-    border: 2px solid #f1d6a5;
-    border-radius: 15px;
-    text-align: center;
-}
-
-h2 {
-    color: #e63946;
-}
-
-/* RODAPÉ */
-
+/* Rodapé */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: var(--cor-texto);
+    color: var(--cor-branco);
     text-align: center;
-    padding: 20px;
-    margin-top: 30px;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
 }
 
-/* RESPONSIVIDADE */
-
+/* Ajuste para celulares */
 @media (max-width: 600px) {
-
     nav a {
         display: inline-block;
-        margin: 8px;
+        margin: 0.4rem;
     }
 
     .container-lanches {
@@ -180,7 +200,11 @@ footer {
     }
 
     .lanche {
-        width: 90%;
+        width: 100%;
+        max-width: 320px;
     }
 
+    header h1 {
+        font-size: 1.7rem;
+    }
 }
